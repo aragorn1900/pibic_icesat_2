@@ -1,6 +1,5 @@
 """
 Verificação de integridade dos arquivos ATL06 baixados
-Versão 2.0 - Otimizada para box expandida
 """
 
 import h5py
@@ -231,5 +230,6 @@ else:  # >= 5% corrompidos
     print(f"\n{len(corrupted_files)} arquivo(s) corrompido(s) ({100*len(corrupted_files)/n_files:.1f}%)")
     print("\nRECOMENDAÇÃO: Re-executar Script 01 para re-baixar arquivos")
     print("\nNÃO prossiga para Script 03 até resolver arquivos corrompidos!")
+
 
 print("="*70)
