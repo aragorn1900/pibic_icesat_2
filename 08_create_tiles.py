@@ -1,7 +1,5 @@
 """
 Criação de tiles espaciais para processamento paralelo
-Equivalente a: tile.py do CAPTOOLKIT
-Versão 5.0 - Leitura 100% sequencial (sem fancy indexing)
 """
 
 import numpy as np
@@ -444,4 +442,5 @@ if len(tile_stats) > 0:
 print(f"\nDiretório: {TILES_WINTER_DIR}")
 print("=" * 70)
 print("\n✓ Criação de tiles concluída!")
+
 print("\nPróximo passo: 09_apply_corrections.py")
