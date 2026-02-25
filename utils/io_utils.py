@@ -1,7 +1,6 @@
 """
 Funções para leitura/escrita HDF5
-Reimplementação de funções do CAPTOOLKIT
-VERSÃO FINAL CORRIGIDA: Trata escalares, arrays e todos os casos
+Trata escalares, arrays e todos os casos
 """
 
 import h5py
@@ -15,8 +14,7 @@ from pathlib import Path
 def read_atl06(filepath, variables=None, ground_track='gt1l'):
     """
     Lê arquivo ATL06 e extrai variáveis
-    CORRIGIDO: Caminhos corretos das variáveis ATL06
-    
+      
     Parâmetros
     ----------
     filepath : str ou Path
@@ -130,8 +128,8 @@ def read_all_ground_tracks(filepath, variables=None):
 
 def read_hdf5(filepath, variables=None):
     """
-    Lê arquivo HDF5 processado (genérico)
-    VERSÃO FINAL CORRIGIDA: SEMPRE retorna arrays (nunca escalares)
+    Lê arquivo HDF5 processado
+    sempre retorna arrays
     
     Parâmetros
     ----------
@@ -143,7 +141,7 @@ def read_hdf5(filepath, variables=None):
     Retorna
     -------
     data : dict
-        Dados lidos (SEMPRE como arrays)
+        Dados lidos 
     """
     
     data = {}
@@ -406,4 +404,5 @@ def count_points_in_files(file_list, var='latitude'):
         except:
             continue
     
+
     return total
