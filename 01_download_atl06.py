@@ -1,6 +1,5 @@
 """
 Download de granules ICESat-2 ATL06
-Versão 2.0 - Com checkpoint e retry para box grande
 """
 
 import earthaccess
@@ -101,7 +100,7 @@ except Exception as e:
 # ============================================
 
 print("\n3. Buscando granules ATL06...")
-print("   (Isso pode demorar 5-10 minutos para box grande...)")
+print("   (Isso pode demorar 5-10 minutos)")
 
 try:
     results = earthaccess.search_data(
@@ -353,5 +352,6 @@ else:
     print("❌ Download falhou completamente")
 
 print("="*70)
+
 
 print("\nPróximo passo: 02_verify_download.py")
