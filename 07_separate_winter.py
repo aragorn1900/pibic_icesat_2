@@ -1,7 +1,5 @@
 """
 Separação de dados de inverno austral
-Equivalente a: filtst.py do CAPTOOLKIT
-Versão 2.0 - Box Expandida
 """
 
 import numpy as np
@@ -296,4 +294,5 @@ print(f"Tamanho:         {file_size_mb:.1f} MB")
 print("="*70)
 
 print("\n✓ Separação de inverno concluída!")
+
 print("\nPróximo passo: 08_create_tiles.py")
