@@ -91,10 +91,7 @@ def interpolate_gaussian(x, y, z, grid_x, grid_y, search_radius=5000, sigma=None
 def interpolate_median(x, y, z, grid_x, grid_y, search_radius=5000):
     """
     Interpolação usando mediana dos vizinhos
-    
-    Equivalente a: interpmed.py do CAPTOOLKIT
-    Mais robusto a outliers que média
-    
+         
     Parâmetros
     ----------
     x, y : array
@@ -546,3 +543,4 @@ if __name__ == "__main__":
     
 
     print("\n✓ Testes concluídos!")
+
