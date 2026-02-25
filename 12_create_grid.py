@@ -1,19 +1,5 @@
 """
 Interpolação Gaussiana de dh/dt para grade regular 2D
-Baseado em: interpgaus.py do CAPTOOLKIT (Johan Nilsson, JPL)
-
-Atualizado para Script 10 v5.1b / Script 11 v2:
-  - Usa p1_error (erro formal) como peso primário
-  - Interpola também p2 (aceleração) e rmse
-  - Salva com h5py direto (evita erro de tipo)
-  - Removido flipud (causava inversão no mapa)
-
-Pipeline CAPTOOLKIT:
-  fitsec.py → join.py → interpgaus.py → grade 2D
-
-Uso original:
-  python interpgaus.py input.h5 output.h5 -d 2 2 -n 25 -r 10 -a 5 \
-    -p 3031 -c 10 3 -v lon lat dhdt dhdt_sigma
 """
 
 import numpy as np
@@ -34,8 +20,6 @@ from geodetic_utils import xy_to_lonlat
 
 print("=" * 70)
 print("INTERPOLAÇÃO GAUSSIANA DE dh/dt PARA GRADE 2D")
-print("Baseado em: interpgaus.py do CAPTOOLKIT (JPL/NASA)")
-print("Compatível com: Script 10 v5.1b / Script 11 v2")
 print("=" * 70)
 
 # ============================================
@@ -593,4 +577,5 @@ if len(ei_valid) > 0:
 print(f"\nArquivos: {grid_dir}")
 print("=" * 70)
 print("\n✓ Grade criada!")
+
 print("\nPróximo passo: 13_statistics.py")
