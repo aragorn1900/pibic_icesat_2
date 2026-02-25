@@ -1,8 +1,5 @@
 """
 Leitura de arquivos ATL06 
-BASEADO NO CAPTOOLKIT ORIGINAL
-Adaptado para Spyder
-Versão 2.0 - Box Expandida
 """
 
 import numpy as np
@@ -36,7 +33,7 @@ from config import (
 )
 
 # ============================================
-# FUNÇÕES AUXILIARES (DO CAPTOOLKIT ORIGINAL)
+# FUNÇÕES AUXILIARES
 # ============================================
 
 def gps2dyr(time):
@@ -59,7 +56,7 @@ def gps2dyr(time):
 
 def segDifferenceFilter(dh_fit_dx, h_li, tol=2):
     """
-    Filtro de diferença de segmentos (do CAPTOOLKIT)
+    Filtro de diferença de segmentos
     Remove pontos com grandes diferenças entre segmentos adjacentes
     
     Baseado em: Smith et al. (2019) - ATL06 Algorithm
@@ -122,8 +119,7 @@ def track_type(time, lat, tmax=1):
 def read_atl06_file(ifile, bbox=None, apply_quality=True):
     """
     Lê arquivo ATL06 completo
-    Baseado no readatl06.py do CAPTOOLKIT original
-    
+        
     Parâmetros
     ----------
     ifile : str
@@ -488,4 +484,5 @@ if __name__ == '__main__':
     print("="*70)
     
     print("\n✓ Leitura concluída!")
+
     print("\nPróximo passo: 04_filter_quality.py")
