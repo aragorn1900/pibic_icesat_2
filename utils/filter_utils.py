@@ -1,6 +1,6 @@
 """
 Utilitários para filtragem de dados
-Versão 2.1 - Corrigido para tratar escalares
+
 """
 
 import numpy as np
@@ -362,4 +362,5 @@ def combine_masks(*masks, operation='and'):
         else:
             raise ValueError(f"Operação desconhecida: {operation}")
     
+
     return combined
