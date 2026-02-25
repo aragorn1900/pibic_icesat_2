@@ -1,7 +1,5 @@
 """
 Aplicação de correções geofísicas aos dados
-Equivalente a: corrslope.py, corrtide.py, corribe.py do CAPTOOLKIT
-VERSÃO FINAL CORRIGIDA
 """
 
 import numpy as np
@@ -170,25 +168,25 @@ if has_tide_vars:
     print("  ✓ Marés terrestres (tide_earth)")
     print("  ✓ Marés polares (tide_pole)")
 else:
-    print("  ⚠ Correções de marés não encontradas")
+    print("  Correções de marés não encontradas")
 
 if dac_var:
     print("  ✓ DAC (Dynamic Atmospheric Correction)")
 
 print("\nNOTA IMPORTANTE:")
 print("  - Para análise de dh/dt, o mais importante é usar a MESMA")
-print("    referência em todos os tempos (ex: sempre elipsoidal)")
+print("    referência em todos os tempo")
 print("  - Correções de marés e DAC já foram aplicadas pela NASA no ATL06")
-print("  - IBE tem efeito pequeno (~1-2 cm) para gelo terrestre")
-print("  - Correção de slope ideal requer DEM de alta resolução (REMA)")
+print("  - Correção de slope ideal requer DEM de alta resolução (REMA), testar DEPOIS")
 
 print("="*60)
 
 print("\n✓ Aplicação de correções concluída!")
-print("\nPróximo passo: 10_calculate_dhdt.py (CORE do projeto)")
+print("\nPróximo passo: 10_calculate_dhdt.py")
 
 print("\nVARIÁVEL A USAR PARA dh/dt:")
 if any_corrections_applied:
     print("  → h_li_corrected (com correções aplicadas)")
 else:
+
     print("  → h_li_corrected (= h_li, sem correções adicionais)")
