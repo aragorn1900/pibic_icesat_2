@@ -1,13 +1,6 @@
 """
 Análise estatística completa dos resultados de dh/dt
 
-Atualizado para Script 10 v5.1b / Script 11 v2 / Script 12 v3:
-  - Lê HDF5 com h5py (datasets + attrs)
-  - Novas variáveis: p1_error, p2, p2_error, rmse, dmin, nobs, p0
-  - Análise de aceleração (p2)
-  - Análise de RMSE do fit vs RMSE da interpolação
-  - Comparação p1_error (formal) vs RMSE (interpgaus)
-
 Paleta de cores consistente:
   VERMELHO = afinamento / derretimento (dh/dt < 0)
   CINZA CLARO = estável / próximo de zero
@@ -15,7 +8,7 @@ Paleta de cores consistente:
 
 Analisa DOIS conjuntos:
   1. Dados pontuais (Script 11 — join)
-  2. Grade interpolada (Script 12 — interpgaus)
+  2. Grade interpolada (Script 12 — creategrid)
 """
 
 import numpy as np
@@ -974,4 +967,5 @@ for p in all_plots:
 
 print("\n" + "=" * 70)
 print("✓ Análise estatística concluída!")
+
 print("\nPróximo passo: 14_plot_maps.py")
