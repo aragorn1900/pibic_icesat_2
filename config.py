@@ -1,8 +1,6 @@
 """
 Configuração para Análise ICESat-2 ATL06
 Região: Amundsen Sea Embayment (West Antarctic Ice Sheet)
-Área: ~875,000 km²
-Versão: 2.0 - Box Expandida
 """
 
 from pathlib import Path
@@ -13,7 +11,6 @@ import numpy as np
 # ============================================
 
 PROJECT_NAME = "Amundsen Sea Embayment - Winter dh/dt Analysis"
-VERSION = "2.0"
 SENSOR = "ICESat-2 ATL06"
 REGION = "Amundsen Sea Embayment, West Antarctic Ice Sheet"
 
@@ -115,17 +112,17 @@ SURFACE_MODEL = {
 # RESOLUÇÃO AJUSTADA PARA BOX GRANDE
 # ============================================
 
-# OPÇÃO 1: Resolução ALTA (Detalhada) - Mais pesado
+# OPÇÃO 1: Resolução ALTA (Detalhada)
 GRID_RESOLUTION_HIGH = 1500      # metros (1.5 km)
 INTERP_RADIUS_HIGH = 7500        # metros (7.5 km)
 GRID_CELLS_HIGH = '~390,000'     # células
 
-# OPÇÃO 2: Resolução MÉDIA (Balanceada) - RECOMENDADO ⭐
+# OPÇÃO 2: Resolução MÉDIA (Balanceada)
 GRID_RESOLUTION_MED = 2000       # metros (2 km)
 INTERP_RADIUS_MED = 10000        # metros (10 km)
 GRID_CELLS_MED = '~220,000'      # células
 
-# OPÇÃO 3: Resolução REGIONAL (Overview) - Mais rápido
+# OPÇÃO 3: Resolução REGIONAL (Overview)
 GRID_RESOLUTION_LOW = 3000       # metros (3 km)
 INTERP_RADIUS_LOW = 15000        # metros (15 km)
 GRID_CELLS_LOW = '~100,000'      # células
@@ -135,14 +132,14 @@ GRID_CELLS_LOW = '~100,000'      # células
 # ALTERE AQUI PARA TROCAR A RESOLUÇÃO
 # ============================================
 
-GRID_RESOLUTION = GRID_RESOLUTION_MED   # ⭐ RECOMENDADO: 2 km
+GRID_RESOLUTION = GRID_RESOLUTION_MED   # 2 km
 INTERP_RADIUS = INTERP_RADIUS_MED       # 10 km
 
 # Para mudar resolução, descomente a linha desejada:
-# GRID_RESOLUTION = GRID_RESOLUTION_HIGH  # Alta: 1.5 km (lento)
+# GRID_RESOLUTION = GRID_RESOLUTION_HIGH  # Alta: 1.5 km
 # INTERP_RADIUS = INTERP_RADIUS_HIGH
 # 
-# GRID_RESOLUTION = GRID_RESOLUTION_LOW   # Baixa: 3 km (rápido)
+# GRID_RESOLUTION = GRID_RESOLUTION_LOW   # Baixa: 3 km
 # INTERP_RADIUS = INTERP_RADIUS_LOW
 
 # Suavização (Gaussian smoothing)
@@ -273,106 +270,6 @@ PLOT_PARAMS = {
 }
 
 # ============================================
-# INFORMAÇÕES DE PROCESSAMENTO
-# ============================================
-
-PROCESSING_INFO = {
-    'computer': 'Local Windows PC',
-    'expected_time': '10-14 days',
-    'ram_required': '16+ GB',
-    'storage_required': '150+ GB',
-    'parallel_processing': False
-}
-
-# ============================================
-# METADADOS
-# ============================================
-
-METADATA = {
-    'project': PROJECT_NAME,
-    'version': VERSION,
-    'sensor': SENSOR,
-    'product': 'ATL06 (Land Ice Height)',
-    'region': REGION,
-    'period': f'{START_YEAR}-{END_YEAR}',
-    'season': SEASON,
-    'box': THWAITES_BBOX,
-    'area_km2': BOX_STATS['approx_area'],
-    'resolution_m': GRID_RESOLUTION,
-    'created_by': 'William',
-    'institution': 'Personal Research',
-    'contact': 'user@example.com',
-    'references': [
-        'CAPTOOLKIT: https://github.com/fspaolo/captoolkit',
-        'BedMachine: Morlighem et al. (2020)',
-        'ICESat-2: https://nsidc.org/data/atl06'
-    ]
-}
-
-# ============================================
-# ESTIMATIVAS DE PROCESSAMENTO
-# ============================================
-
-ESTIMATES = {
-    'download': {
-        'granules': '~800-1200',
-        'size_gb': '~80-120 GB',
-        'time': '4-6 days'
-    },
-    'processing': {
-        'read_atl06': '8-12 hours',
-        'filter_quality': '3-5 hours',
-        'tiling': '2-3 hours',
-        'calculate_dhdt': '5-7 days',  # Gargalo!
-        'gridding': '3-5 hours',
-        'total': '10-14 days'
-    },
-    'storage': {
-        'raw_data': '80-120 GB',
-        'processed': '20-30 GB',
-        'tiles': '15-20 GB',
-        'grids': '5-10 GB',
-        'total': '120-180 GB'
-    }
-}
-
-# ============================================
-# WARNINGS E AVISOS
-# ============================================
-
-WARNINGS = """
-⚠️ ATENÇÃO - BOX MUITO GRANDE! ⚠️
-
-Esta configuração processa uma área de ~875,000 km²
-(16× maior que a configuração original de Thwaites)
-
-IMPACTOS:
-- Tempo de processamento: 10-14 DIAS
-- Armazenamento necessário: 120-180 GB
-- RAM recomendada: 16+ GB
-- Script 10 (dh/dt): ~5-7 DIAS sozinho
-
-RECOMENDAÇÕES:
-1. Certifique-se de ter espaço em disco suficiente
-2. Processe em fases se possível (por geleira)
-3. Use máscara de gelo RIGOROSA
-4. Monitore progresso regularmente
-5. Faça backups incrementais
-
-RESOLUÇÃO ATIVA: {grid_res} metros
-- Para mudar: edite GRID_RESOLUTION no config.py
-- Alta (1.5 km): Detalhada, ~390k células, LENTO
-- Média (2 km): Balanceada, ~220k células, RECOMENDADO ⭐
-- Baixa (3 km): Regional, ~100k células, RÁPIDO
-"""
-
-# Print warning ao importar
-print(WARNINGS.format(grid_res=GRID_RESOLUTION))
-print(f"\n✓ Configuração carregada: Box Amundsen Sea ({BOX_STATS['approx_area']:,} km²)")
-print(f"✓ Resolução de grade: {GRID_RESOLUTION} metros")
-print(f"✓ Células estimadas: {GRID_CELLS_MED if GRID_RESOLUTION == 2000 else 'ver config'}")
-
-# ============================================
 # FUNÇÃO AUXILIAR: Trocar Resolução
 # ============================================
 
@@ -425,4 +322,5 @@ __all__ = [
     'PROJECTION',
     'METADATA',
     'set_resolution'
+
 ]
