@@ -1,7 +1,5 @@
 """
 Filtragem de dados por qualidade
-Equivalente a: filtnan.py do CAPTOOLKIT
-Versão 2.0 - Box Expandida
 """
 
 import numpy as np
@@ -68,7 +66,6 @@ if len(processed_files) == 0:
 # ============================================
 
 print("\n2. Aplicando filtros de qualidade...")
-print("   (Isso pode demorar ~2-3 horas para box grande!)")
 
 n_files_processed = 0
 n_files_empty = 0
@@ -184,4 +181,5 @@ print(f"\nDiretório: {PROCESSED_DIR}")
 print("="*70)
 
 print("\n✓ Filtragem concluída!")
+
 print("\nPróximo passo: 05_filter_region.py")
