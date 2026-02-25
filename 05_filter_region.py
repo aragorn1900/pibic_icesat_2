@@ -1,7 +1,5 @@
 """
 Filtragem por região geográfica
-Equivalente a: filtmask.py -b do CAPTOOLKIT
-Versão 2.0 - Box Expandida
 """
 
 import numpy as np
@@ -70,7 +68,6 @@ if len(processed_files) == 0:
 # ============================================
 
 print("\n2. Filtrando por bounding box...")
-print("   (Isso pode demorar ~30-60 minutos para box grande!)")
 
 n_files_processed = 0
 n_files_empty = 0
@@ -209,4 +206,5 @@ print(f"\nDiretório: {PROCESSED_DIR}")
 print("="*70)
 
 print("\n✓ Filtragem regional concluída!")
+
 print("\nPróximo passo: 06_merge_files.py")
