@@ -1,6 +1,5 @@
 """
 Funções de interpolação espacial
-Equivalente a: interpgaus.py, interpmed.py, interpkrig.py do CAPTOOLKIT
 """
 
 import numpy as np
@@ -13,8 +12,7 @@ def interpolate_gaussian(x, y, z, grid_x, grid_y, search_radius=5000, sigma=None
     """
     Interpolação usando kernel Gaussiano
     
-    Equivalente a: interpgaus.py do CAPTOOLKIT
-    
+      
     Parâmetros
     ----------
     x, y : array
@@ -546,4 +544,5 @@ if __name__ == "__main__":
     grid_smooth = smooth_grid(grid_gauss, sigma=2)
     print(f"   ✓ Grade suavizada")
     
+
     print("\n✓ Testes concluídos!")
