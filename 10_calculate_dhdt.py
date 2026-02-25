@@ -1,20 +1,5 @@
 """
 Cálculo de dh/dt (taxa de mudança de elevação)
-Versão 5.1b - Baseado no fitsec.py do CAPTOOLKIT
-
-Correções vs v5.1:
-  - Fix: write_hdf5 compatível com metadados escalares/string
-  - Fix: séries temporais com t_bin de tamanho variável entre tiles
-
-Correções vs v5.0:
-  - Normalização de dx/dy na matriz de design
-  - RATE_LIM = 15 m/ano
-  - P2_LIMIT = 2 m/ano²
-  - RESID_LIMIT = 5 m
-
-Credits:
-    captoolkit - JPL Cryosphere Altimetry Processing Toolkit
-    Johan Nilsson, Fernando Paolo, Alex Gardner (JPL/NASA)
 """
 
 import numpy as np
@@ -843,4 +828,5 @@ if len(all_stats) > 0:
 
 print(f"\nResultados em: {DHDT_WINTER_DIR}")
 print("*" * 70)
+
 print("\n✓ Concluído! Próximo: 11_join_tiles.py")
