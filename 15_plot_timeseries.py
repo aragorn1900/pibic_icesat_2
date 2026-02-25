@@ -3,8 +3,7 @@ Análise de séries temporais e gráficos complementares
 
 - Histograma/Boxplot: usa produto final de dh/dt (results/dhdt_winter/*.h5)
 - Série temporal de anomalia de elevação: usa observações ATL06 (Data/*atl06*.h5)
-  Corrigido por cobertura espacial (só usa células com dados em todos os anos)
-  Leitura em chunks — 100% vetorizado com numpy (sem loop por célula)
+  Leitura em chunks (sem loop por célula)
 """
 
 import numpy as np
@@ -420,7 +419,7 @@ else:
                     print(f"   Mudança total ({ref_year}-{sorted_years[-1]}): {total_change:+.3f} m em {total_yrs} anos")
 
                     # --------------------------------------------------
-                    # GRÁFICO — Estilo publicação (Velicogna)
+                    # GRÁFICO —
                     # --------------------------------------------------
 
                     fig, ax = plt.subplots(figsize=(12, 7))
@@ -530,4 +529,5 @@ print("\n✓ PROJETO CONCLUÍDO!")
 print(f"\nResultados finais em:")
 print(f"  - Grades:   {RESULTS_DIR / 'grids'}")
 print(f"  - Mapas:    {FIGURES_DIR / 'maps'}")
+
 print(f"  - Gráficos: {plots_dir}")
