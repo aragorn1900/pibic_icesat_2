@@ -1,15 +1,5 @@
 """
 Junção de tiles de dh/dt em arquivo único
-Equivalente a: join.py do CAPTOOLKIT
-
-Atualizado para Script 10 v5.1b:
-  - Lê datasets + attrs do HDF5 (formato novo)
-  - Inclui novas variáveis: p0, p2, p0_error, p2_error, rmse, dmin, t_ref
-  - Junta séries temporais sec(t) dos tiles
-  - Salva com h5py direto (evita erros de tipo)
-
-CAPTOOLKIT Original:
-    join.py -o output.h5 tiles/*.h5
 """
 
 import numpy as np
@@ -528,4 +518,5 @@ if has_timeseries and len(all_sec_t) > 0:
 print(f"\nArquivo: {output_file}")
 print("=" * 70)
 print("\n✓ Junção concluída!")
+
 print("\nPróximo passo: 12_create_grid_oi.py")
